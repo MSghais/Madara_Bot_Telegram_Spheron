@@ -189,7 +189,7 @@ export class DeployService {
           await this.spheronService.createComputeInstance(
             userId.toString(),
             this.regionSelectedByUser[userId],
-            ""
+            "Madara Full node"
           );
         if (!success) {
           if (!message) {
