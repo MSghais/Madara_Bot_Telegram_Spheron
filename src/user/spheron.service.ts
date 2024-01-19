@@ -64,6 +64,7 @@ export class SpheronService {
     } catch (e) {}
   }
 
+  /** @TODO add different type of deployment (Full node, Light node) and harwares config */
   async createComputeInstance(
     userId: string,
     region: string,
@@ -146,38 +147,11 @@ export class SpheronService {
           ],
           region: region ?? "any",
           replicas: 1,
-
           // MIN HARDWARE
-          storage: 8,
-          customSpecs: {
-            cpu: 2,
-            memory: 4,
-          },
-
-          // // MEAN HARDWARE
-          // storage: 32,
-          // customSpecs: {
-          //   cpu: 2,
-          //   memory: 4,
-          // },
-          // MAX HARDWARE
-          // storage: 60,
-          // customSpecs: {
-          //   cpu: 4,
-          //   memory: 8,
-          // },
-          // machineImageId: ventusSmallId
-          // persistentStorage: {
-          //   size: 10,
-          //   class: PersistentStorageClassEnum.SSD,
-          //   mountPoint: "/etc/data",
-          // },
+          storage:MADARA_CONFIG_DEPLOYMENT?.config?.MIN_CONFIG?.storage,
+          customSpecs:MADARA_CONFIG_DEPLOYMENT?.config?.MIN_CONFIG?.customSpecs
        
         },
-        // healthCheckConfig: {
-        //   path: "/",
-        //   port: 8000,
-        // },
         type: ComputeTypeEnum.DEMAND,
       });
       return {

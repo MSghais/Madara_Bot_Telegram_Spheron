@@ -13,6 +13,7 @@ export const MADARA_CONFIG_DEPLOYMENT= {
               memory: 4,
             },
         },
+   
     }
 }
 export interface ChainInterface {
